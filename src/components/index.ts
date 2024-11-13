@@ -9,7 +9,11 @@ export { KakaoMapCard } from "@/components/home/KakaoMapCard";
 export { HighlightCard } from "@/components/home/HighlightCard";
 
 /** HighlightCard */
-export { HighlightDataCard } from "@/components/home/HighlightDataCard";
+export { HighlightDataCard } from "@/components/home/highlightCard/HighlightDataCard";
+export { HighlightSummaryCard } from "@/components/home/highlightCard/HighlightSummaryCard";
+
+/** DaysCard */
+export { DaysCard } from "@/components/home/DaysCard";
 
 /** UI 기초 컴포넌트 */
 export { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";

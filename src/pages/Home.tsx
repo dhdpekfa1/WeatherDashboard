@@ -4,11 +4,7 @@ import {
   HourlyCard,
   KakaoMapCard,
   HighlightCard,
-  // Card,
-  // CardHeader,
-  // CardTitle,
-  // CardDescription,
-  // CardContent,
+  DaysCard,
 } from "@/components";
 
 const Home = () => {
@@ -26,15 +22,7 @@ const Home = () => {
           {/* 하단 2개 위젯 3:1 */}
           <div className="w-full flex items-center gap-6">
             <HighlightCard />
-            {/* <Card className="flex-1 max-w-[calc(50%-48px)] h-full">
-              <CardHeader>
-                <CardTitle className="text-xl">7 Day's</CardTitle>
-                <CardDescription>
-                  이번 주 날씨를 조회하고 있습니다.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="w-full flex items-center gap-4 overflow-x-scroll"></CardContent>
-            </Card> */}
+            <DaysCard />
           </div>
         </div>
       </div>
