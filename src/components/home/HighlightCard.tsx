@@ -5,9 +5,41 @@ import {
   CardDescription,
   CardContent,
   SunriseAndSunset,
+  HighlightDataCard,
 } from "@/components";
 
 const HighlightCard = () => {
+  const CardData = [
+    {
+      labelKo: "습도",
+      labelEn: "Humidity",
+      imgUrl: "src/assets/icons/Humidity.svg",
+      value: 80,
+      unit: "%",
+    },
+    {
+      labelKo: "기압",
+      labelEn: "Pressure",
+      imgUrl: "src/assets/icons/Wind.svg",
+      value: 1024,
+      unit: "hPa",
+    },
+    {
+      labelKo: "가시거리",
+      labelEn: "Visibility",
+      imgUrl: "src/assets/icons/Fog.svg",
+      value: 10,
+      unit: "km",
+    },
+    {
+      labelKo: "체감온도",
+      labelEn: "Fells Lick",
+      imgUrl: "src/assets/icons/Hot.svg",
+      value: 80,
+      unit: `&#8451;`,
+    },
+  ];
+
   return (
     <Card className="flex-1">
       <CardHeader>
@@ -16,6 +48,7 @@ const HighlightCard = () => {
           오늘의 날씨 중 주의깊게 살펴보아야 할 이벤트를 조회하고 있습니다.
         </CardDescription>
       </CardHeader>
+      {/* TODO: 2개의 CardContent 부분  컴포넌트 분리 */}
       <CardContent className="flex flex-col gap-5">
         <div className="flex items-center gap-5">
           <Card className="w-full bg-neutral-100">
@@ -33,8 +66,8 @@ const HighlightCard = () => {
                 alt="waves-icon"
                 className="h-14"
               />
+              {/* TODO: Tides 컴포넌트 분리 */}
               <div className="w-fit grid grid-cols-4 gap-3">
-                {/* TODO: 해양 데이터 컴포넌트 분리 */}
                 <div className="flex flex-col items-center">
                   <p className="text-sm text-muted-foreground">1회 - 만조</p>
                   <p className="roboto-medium scroll-m-20 text-lg font-semibold tracking-tighter">
@@ -89,7 +122,17 @@ const HighlightCard = () => {
             </CardContent>
           </Card>
         </div>
-        <div></div>
+        <div className="w-full grid grid-cols-4 gap-5">
+          {CardData.map((data) => (
+            <HighlightDataCard
+              labelKo={data.labelKo}
+              labelEn={data.labelEn}
+              imgUrl={data.imgUrl}
+              value={data.value}
+              unit={data.unit}
+            />
+          ))}
+        </div>
       </CardContent>
     </Card>
   );
