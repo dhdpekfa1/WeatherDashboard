@@ -3,13 +3,14 @@ interface DayCardProps {
   lowTemp: number;
   date: string;
   day: string;
+  imgUrl: string;
 }
 
-const DayCard = ({ highTemp, lowTemp, date, day }: DayCardProps) => {
+const DayCard = ({ highTemp, lowTemp, date, day, imgUrl }: DayCardProps) => {
   return (
     <div className="w-full flex items-center gap-7 bg-neutral-50 py-0 px-3 rounded-sm">
       <div className="w-fit h-10 flex items-center gap-2">
-        <img src="src/assets/icons/1000d.svg" alt="" className="h-7 w-7" />
+        <img src={imgUrl} alt="" className="h-7 w-7" />
         <div className="flex items-center gap-1 w-20">
           {/* TODO: 2번 반복되는 날씨 부분 컴포넌트 분리 */}
           <div className="w-full h-full flex items-start gap-[2px]">

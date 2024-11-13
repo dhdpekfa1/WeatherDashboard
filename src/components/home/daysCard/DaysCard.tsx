@@ -14,42 +14,49 @@ const DaysCard = () => {
       lowTemp: 14,
       date: "03 Nov",
       day: "일",
+      imgUrl: "src/assets/icons/1006d.svg",
     },
     {
       highTemp: 17,
       lowTemp: 9,
       date: "04 Nov",
       day: "월",
+      imgUrl: "src/assets/icons/1000d.svg",
     },
     {
-      highTemp: 20,
-      lowTemp: 14,
+      highTemp: 18,
+      lowTemp: 12,
       date: "05 Nov",
       day: "화",
+      imgUrl: "src/assets/icons/1240d.svg",
     },
     {
-      highTemp: 20,
-      lowTemp: 14,
+      highTemp: 13,
+      lowTemp: 8,
       date: "06 Nov",
       day: "수",
+      imgUrl: "src/assets/icons/1240d.svg",
     },
     {
-      highTemp: 20,
-      lowTemp: 14,
+      highTemp: 14,
+      lowTemp: 8,
       date: "07 Nov",
       day: "목",
+      imgUrl: "src/assets/icons/1000d.svg",
     },
     {
-      highTemp: 20,
-      lowTemp: 14,
+      highTemp: 13,
+      lowTemp: 6,
       date: "08 Nov",
       day: "금",
+      imgUrl: "src/assets/icons/1003d.svg",
     },
     {
-      highTemp: 20,
-      lowTemp: 14,
+      highTemp: 13,
+      lowTemp: 9,
       date: "09 Nov",
       day: "토",
+      imgUrl: "src/assets/icons/1000d.svg",
     },
   ];
   return (
@@ -66,6 +73,7 @@ const DaysCard = () => {
             lowTemp={data.lowTemp}
             date={data.date}
             day={data.day}
+            imgUrl={data.imgUrl}
           />
         ))}
       </CardContent>

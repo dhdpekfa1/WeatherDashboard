@@ -6,8 +6,8 @@ export { TodayCard } from "@/components/home/TodayCard";
 export { HourlyCard } from "@/components/home/HourlyCard";
 export { HourlyCardItem } from "@/components/home/HourlyCardItem";
 export { KakaoMapCard } from "@/components/home/KakaoMapCard";
-export { HighlightCard } from "@/components/home/HighlightCard";
-export { DaysCard } from "@/components/home/DaysCard";
+export { HighlightCard } from "@/components/home/highlightCard/HighlightCard";
+export { DaysCard } from "@/components/home/daysCard/DaysCard";
 
 /** HighlightCard */
 export { HighlightDataCard } from "@/components/home/highlightCard/HighlightDataCard";
