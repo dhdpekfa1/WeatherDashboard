@@ -1,7 +1,11 @@
+import { Header } from "@/components";
+
 const Home = () => {
   return (
     <div className="page">
-      <div className="page__container"></div>
+      <div className="page__container">
+        <Header />
+      </div>
     </div>
   );
 };
