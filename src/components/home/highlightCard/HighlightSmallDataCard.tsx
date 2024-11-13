@@ -27,7 +27,14 @@ const HighlightSmallDataCard = ({
         <img src={imgUrl} alt="icon" className="w-10 h-10" />
         <p className="roboto-medium scroll-m-20 text-3xl font-semibold tracking-tight">
           {value}
-          <span className="text-lg ml-1">{unit}</span>
+          {unit.includes("&#") ? (
+            <span
+              className="text-lg ml-1 align-text-top"
+              dangerouslySetInnerHTML={{ __html: unit }}
+            />
+          ) : (
+            <span className="text-lg ml-1">{unit}</span>
+          )}
         </p>
       </CardContent>
     </Card>

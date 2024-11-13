@@ -37,7 +37,7 @@ const HighlightCard = () => {
       labelEn: "Fells Lick",
       imgUrl: "src/assets/icons/Hot.svg",
       value: 80,
-      unit: `&#8451;`,
+      unit: "&#8451;",
     },
   ];
 
