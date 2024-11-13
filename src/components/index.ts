@@ -1,6 +1,9 @@
 /** 공통 컴포넌트 */
 export { Header } from "@/components/common/Header";
 
+/** HOME 페이지에서 관리하는 컴포넌트 */
+export { TodayCard } from "@/components/home/TodayCard";
+
 /** UI 기초 컴포넌트 */
 export { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 export { Button, buttonVariants } from "@/components/ui/button";

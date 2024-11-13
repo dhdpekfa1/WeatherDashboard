@@ -1,6 +1,6 @@
 ## 날씨 오픈 API를 활용한 대시보드 만들기
 
-0. shadcn.ui 사용
+0. shadcn.ui, google-font 사용
 1. tailwindcss 설치: `npm install tailwind-merge tailwindcss-animate`
 2. 리액트 라우터 설치: `npm install react-router-dom`
 3. SASS/SCSS 라이브러리 설치: `npm install -D sass-embedded`
