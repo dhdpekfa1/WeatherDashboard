@@ -4,7 +4,6 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  DayCardItem,
 } from "@/components";
 
 const DaysCard = () => {
@@ -67,13 +66,34 @@ const DaysCard = () => {
       </CardHeader>
       <CardContent className="w-full flex flex-col items-center gap-1">
         {daysData.map((data) => (
-          <DayCardItem
-            highTemp={data.highTemp}
-            lowTemp={data.lowTemp}
-            date={data.date}
-            day={data.day}
-            imgUrl={data.imgUrl}
-          />
+          <div className="w-full flex items-center gap-7 bg-neutral-50 py-0 px-3 rounded-sm">
+            <div className="w-fit h-10 flex items-center gap-2">
+              <img src={data.imgUrl} alt="" className="h-7 w-7" />
+              <div className="flex items-center gap-1 w-20">
+                <div className="w-full h-full flex items-start gap-[2px]">
+                  <span
+                    className={`roboto-medium scroll-m-20 text-lg font-semibold tracking-tight text-red-600`}
+                  >
+                    {data.highTemp}
+                  </span>
+                  <span className="text-xs font-normal mt-1">&#8451;</span>
+                </div>
+                <div className="w-full h-full flex items-start gap-[2px]">
+                  <span
+                    className={`roboto-medium scroll-m-20 text-lg font-semibold tracking-tight text-sky-600`}
+                  >
+                    {data.lowTemp}
+                  </span>
+                  <span className="text-xs font-normal mt-1">&#8451;</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-1 flex items-center justify-end gap-5 mb-1">
+              <small className="text-sm leading-none">{data.date}</small>
+              <small className="text-sm leading-none">{data.day}요일</small>
+            </div>
+          </div>
         ))}
       </CardContent>
     </Card>

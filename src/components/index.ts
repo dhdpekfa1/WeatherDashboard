@@ -7,15 +7,11 @@ export { HourlyCard } from "@/components/home/HourlyCard";
 export { HourlyCardItem } from "@/components/home/HourlyCardItem";
 export { KakaoMapCard } from "@/components/home/KakaoMapCard";
 export { HighlightCard } from "@/components/home/highlightCard/HighlightCard";
-export { DaysCard } from "@/components/home/daysCard/DaysCard";
+export { DaysCard } from "@/components/home/DaysCard";
 
 /** HighlightCard */
 export { HighlightDataCard } from "@/components/home/highlightCard/HighlightDataCard";
 export { HighlightSummaryCard } from "@/components/home/highlightCard/HighlightSummaryCard";
-
-/** DaysCard */
-export { DayCardItem } from "@/components/home/daysCard/DayCardItem";
-export { TemperatureItem } from "@/components/home/daysCard/TemperatureItem";
 
 /** UI 기초 컴포넌트 */
 export { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
