@@ -14,7 +14,8 @@ export { HighlightDataCard } from "@/components/home/highlightCard/HighlightData
 export { HighlightSummaryCard } from "@/components/home/highlightCard/HighlightSummaryCard";
 
 /** DaysCard */
-export { DayCard } from "@/components/home/daysCard/DayCard";
+export { DayCardItem } from "@/components/home/daysCard/DayCardItem";
+export { TemperatureItem } from "@/components/home/daysCard/TemperatureItem";
 
 /** UI 기초 컴포넌트 */
 export { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";

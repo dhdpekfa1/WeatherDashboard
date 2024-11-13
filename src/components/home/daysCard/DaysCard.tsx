@@ -4,7 +4,7 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  DayCard,
+  DayCardItem,
 } from "@/components";
 
 const DaysCard = () => {
@@ -66,9 +66,8 @@ const DaysCard = () => {
         <CardDescription>이번 주 날씨를 조회하고 있습니다.</CardDescription>
       </CardHeader>
       <CardContent className="w-full flex flex-col items-center gap-1">
-        {/* 7일 - 컴포넌트로 분리 */}
         {daysData.map((data) => (
-          <DayCard
+          <DayCardItem
             highTemp={data.highTemp}
             lowTemp={data.lowTemp}
             date={data.date}
