@@ -66,7 +66,10 @@ const DaysCard = () => {
       </CardHeader>
       <CardContent className="w-full flex flex-col items-center gap-1">
         {daysData.map((data) => (
-          <div className="w-full flex items-center gap-7 bg-neutral-50 py-0 px-3 rounded-sm">
+          <div
+            key={data.day}
+            className="w-full flex items-center gap-7 bg-neutral-50 py-0 px-3 rounded-sm"
+          >
             <div className="w-fit h-10 flex items-center gap-2">
               <img src={data.imgUrl} alt="" className="h-7 w-7" />
               <div className="flex items-center gap-1 w-20">

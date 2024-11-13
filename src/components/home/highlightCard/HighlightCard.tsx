@@ -108,6 +108,7 @@ const HighlightCard = () => {
         <div className="w-full grid grid-cols-4 gap-5">
           {cardData.map((data) => (
             <HighlightSmallDataCard
+              key={data.labelKo}
               labelKo={data.labelKo}
               labelEn={data.labelEn}
               imgUrl={data.imgUrl}
