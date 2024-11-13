@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardDescription, CardContent } from "@/components";
 
-interface HighlightDataCardProps {
+interface HighlightSmallDataCardProps {
   labelKo: string;
   labelEn: string;
   imgUrl: string;
@@ -8,13 +8,13 @@ interface HighlightDataCardProps {
   unit: string;
 }
 
-const HighlightDataCard = ({
+const HighlightSmallDataCard = ({
   labelKo,
   labelEn,
   imgUrl,
   value,
   unit,
-}: HighlightDataCardProps) => {
+}: HighlightSmallDataCardProps) => {
   return (
     <Card className="w-full h-fit bg-neutral-50">
       <CardHeader>
@@ -34,4 +34,4 @@ const HighlightDataCard = ({
   );
 };
 
-export { HighlightDataCard };
+export { HighlightSmallDataCard };

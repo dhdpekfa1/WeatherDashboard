@@ -5,8 +5,8 @@ import {
   CardDescription,
   CardContent,
   SunriseAndSunset,
-  HighlightDataCard,
-  HighlightSummaryCard,
+  HighlightSmallDataCard,
+  HighlighBigDataCard,
 } from "@/components";
 
 const HighlightCard = () => {
@@ -51,14 +51,12 @@ const HighlightCard = () => {
       </CardHeader>
       <CardContent className="flex flex-col gap-5">
         <div className="flex items-center gap-5">
-          {/* TODO: 2개의 CardContent 부분  컴포넌트 분리 */}
-          {/* {summaryCard.map((data) => ( */}
-          <HighlightSummaryCard
+          <HighlighBigDataCard
             labelKo={"해양 및 조수 데이터"}
             labelEn={"Marine and Sailing"}
             imgUrl={"src/assets/icons/Waves.png"}
           >
-            {/* TODO: Tides 컴포넌트 분리 */}
+            {/* TODO: Tides 컴포넌트 분리 가능 */}
             <div className="w-fit grid grid-cols-4 gap-3">
               <div className="flex flex-col items-center">
                 <p className="text-sm text-muted-foreground">1회 - 만조</p>
@@ -89,9 +87,9 @@ const HighlightCard = () => {
                 </p>
               </div>
             </div>
-          </HighlightSummaryCard>
+          </HighlighBigDataCard>
 
-          <HighlightSummaryCard
+          <HighlighBigDataCard
             labelKo={"일출 / 일몰"}
             labelEn={"Sunrise and Sunset"}
           >
@@ -105,11 +103,11 @@ const HighlightCard = () => {
               label={"Sunset"}
               time={" 05:34 PM"}
             />
-          </HighlightSummaryCard>
+          </HighlighBigDataCard>
         </div>
         <div className="w-full grid grid-cols-4 gap-5">
           {cardData.map((data) => (
-            <HighlightDataCard
+            <HighlightSmallDataCard
               labelKo={data.labelKo}
               labelEn={data.labelEn}
               imgUrl={data.imgUrl}

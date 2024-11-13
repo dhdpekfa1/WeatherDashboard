@@ -1,19 +1,19 @@
 import { Card, CardHeader, CardDescription, CardContent } from "@/components";
 import { ReactNode } from "react";
 
-interface HighlightSummaryCardProps {
+interface HighlighBigDataCardProps {
   labelKo: string;
   labelEn: string;
   imgUrl?: string;
   children: ReactNode;
 }
 
-const HighlightSummaryCard = ({
+const HighlighBigDataCard = ({
   labelKo,
   labelEn,
   children,
   imgUrl,
-}: HighlightSummaryCardProps) => {
+}: HighlighBigDataCardProps) => {
   return (
     <Card className="w-full bg-neutral-100">
       <CardHeader>
@@ -24,11 +24,10 @@ const HighlightSummaryCard = ({
       </CardHeader>
       <CardContent className="w-full flex items-center justify-between">
         {imgUrl && <img src={imgUrl} alt="waves-icon" className="h-14" />}
-
         {children}
       </CardContent>
     </Card>
   );
 };
 
-export { HighlightSummaryCard };
+export { HighlighBigDataCard };
