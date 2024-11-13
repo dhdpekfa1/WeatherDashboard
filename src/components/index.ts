@@ -3,7 +3,8 @@ export { Header } from "@/components/common/Header";
 
 /** HOME 페이지에서 관리하는 컴포넌트 */
 export { TodayCard } from "@/components/home/TodayCard";
-export { HoourlyCard } from "@/components/home/HoourlyCard";
+export { HourlyCard } from "@/components/home/HourlyCard";
+export { HourlyCardItem } from "@/components/home/HourlyCardItem";
 export { MapCard } from "@/components/home/MapCard";
 
 /** UI 기초 컴포넌트 */

@@ -1,5 +1,5 @@
 import useKakaoLoader from "@/hooks/useKakaoLoader";
-import { Header, TodayCard, HoourlyCard, MapCard } from "@/components";
+import { Header, TodayCard, HourlyCard, MapCard } from "@/components";
 
 const Home = () => {
   useKakaoLoader();
@@ -12,7 +12,7 @@ const Home = () => {
           {/* 상단 3개 위젯 1:2:1 */}
           <div className="w-full flex items-center gap-6">
             <TodayCard />
-            <HoourlyCard />
+            <HourlyCard />
             <MapCard />
           </div>
           <div className="w-full flex items-center gap-6 bg-slate-500"></div>
