@@ -1,9 +1,18 @@
-import useKakaoLoader from "@/hooks/useKakaoLoader";
-import { Header, TodayCard, HourlyCard, MapCard } from "@/components";
+import {
+  Header,
+  TodayCard,
+  HourlyCard,
+  KakaoMapCard,
+  HighlightCard,
+  // Card,
+  // CardHeader,
+  // CardTitle,
+  // CardDescription,
+  // CardContent,
+  // SunriseAndSunset,
+} from "@/components";
 
 const Home = () => {
-  useKakaoLoader();
-
   return (
     <div className="page">
       <div className="page__container">
@@ -13,11 +22,12 @@ const Home = () => {
           <div className="w-full flex items-center gap-6">
             <TodayCard />
             <HourlyCard />
-            <MapCard />
+            <KakaoMapCard />
           </div>
-          <div className="w-full flex items-center gap-6 bg-slate-500"></div>
-          {/* 상단 2개 위젯 3:1 */}
-          <div className="w-full flex items-center gap-6 bg-orange-500"></div>
+          {/* 하단 2개 위젯 3:1 */}
+          <div className="w-full flex items-center gap-6">
+            <HighlightCard />
+          </div>
         </div>
       </div>
     </div>

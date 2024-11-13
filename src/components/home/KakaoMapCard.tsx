@@ -1,10 +1,13 @@
+import useKakaoLoader from "@/hooks/useKakaoLoader";
 import { Map } from "react-kakao-maps-sdk";
 import { Card } from "@/components";
 
-const MapCard = () => {
+const KakaoMapCard = () => {
+  useKakaoLoader();
+
   return (
     <Card className="w-1/4 min-w-[25%] h-full">
-      <Map
+      <Map // 지도를 표시할 Container
         id="map"
         center={{
           // 지도의 중심좌표
@@ -12,14 +15,15 @@ const MapCard = () => {
           lng: 126.9778,
         }}
         style={{
+          // 지도의 크기
           width: "100%",
           height: "100%",
           borderRadius: "8px",
         }}
-        level={3} // 지도의 확대 레벨
+        level={12} // 지도의 확대 레벨
       />
     </Card>
   );
 };
 
-export { MapCard };
+export { KakaoMapCard };

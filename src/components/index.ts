@@ -5,7 +5,8 @@ export { Header } from "@/components/common/Header";
 export { TodayCard } from "@/components/home/TodayCard";
 export { HourlyCard } from "@/components/home/HourlyCard";
 export { HourlyCardItem } from "@/components/home/HourlyCardItem";
-export { MapCard } from "@/components/home/MapCard";
+export { KakaoMapCard } from "@/components/home/KakaoMapCard";
+export { HighlightCard } from "@/components/home/HighlightCard";
 
 /** UI 기초 컴포넌트 */
 export { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -21,3 +22,6 @@ export {
 export { Input } from "@/components/ui/input";
 export { Separator } from "@/components/ui/separator";
 export { SearchBar } from "@/components/ui/search-bar";
+
+/** Test Code */
+export { SunriseAndSunset } from "@/components/home/SunriseAndSunset";
