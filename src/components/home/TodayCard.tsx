@@ -6,9 +6,14 @@ import {
   CardContent,
   Separator,
 } from "@/components";
+import { Weather } from "@/types/data";
 import { CalendarDays, MapPinned } from "lucide-react";
 
-const TodayCard = () => {
+interface TodayCardProps {
+  data: Weather;
+}
+
+const TodayCard = (data: TodayCardProps) => {
   return (
     <Card className="w-1/4 min-w-[25%]">
       <CardHeader>
