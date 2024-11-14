@@ -68,18 +68,19 @@ const HighlightCard = ({ currentData, tideData }: HighlightCardProps) => {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-5">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center justify-center gap-5">
           <HighlighBigDataCard
             labelKo={"해양 및 조수 데이터"}
             labelEn={"Marine and Sailing"}
             imgUrl={"src/assets/icons/Waves.png"}
           >
-            <CardContent className="w-full flex items-center justify-between">
-              <div className="w-fit grid grid-cols-4 gap-3">
+            <div className="w-full flex items-center justify-between">
+              <div className="w-fit flex gap-4 items-center ml-4">
+                {/* <div className="w-fit grid grid-cols-4 gap-3"> */}
                 {tideTimesWithUnits.map((tide, index) => (
                   <div className="flex flex-col items-center" key={index}>
                     <p className="text-sm text-muted-foreground">
-                      {index + 1}회-{tide.type === "HIGH" ? "만조" : "간조"}
+                      {index + 1}회 {tide.type === "HIGH" ? "만조" : "간조"}
                     </p>
                     <p className="roboto-medium scroll-m-20 text-lg font-semibold tracking-tight">
                       {tide.displayTime}
@@ -88,7 +89,7 @@ const HighlightCard = ({ currentData, tideData }: HighlightCardProps) => {
                   </div>
                 ))}
               </div>
-            </CardContent>
+            </div>
           </HighlighBigDataCard>
 
           <HighlighBigDataCard
