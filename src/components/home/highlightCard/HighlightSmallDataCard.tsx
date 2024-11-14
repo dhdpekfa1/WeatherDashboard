@@ -1,12 +1,5 @@
 import { Card, CardHeader, CardDescription, CardContent } from "@/components";
-
-interface HighlightSmallDataCardProps {
-  labelKo: string;
-  labelEn: string;
-  imgUrl: string;
-  value: number;
-  unit: string;
-}
+import { HighlightSmallDataCardProps } from "@/types/home";
 
 const HighlightSmallDataCard = ({
   labelKo,

@@ -6,12 +6,8 @@ import {
   CardContent,
   Separator,
 } from "@/components";
-import { Weather } from "@/types/data";
 import { CalendarDays, MapPinned } from "lucide-react";
-
-interface TodayCardProps {
-  data: Weather;
-}
+import { TodayCardProps } from "@/types/home";
 
 const TodayCard = (data: TodayCardProps) => {
   return (

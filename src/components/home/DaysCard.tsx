@@ -58,6 +58,7 @@ const DaysCard = () => {
       imgUrl: "src/assets/icons/1000d.svg",
     },
   ];
+
   return (
     <Card className="w-1/4">
       <CardHeader>

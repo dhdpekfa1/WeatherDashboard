@@ -1,8 +1,4 @@
-interface SunriseAndSunsetProps {
-  imgUrl: string;
-  label: string;
-  time: string;
-}
+import { SunriseAndSunsetProps } from "@/types/home";
 
 const SunriseAndSunset = ({ imgUrl, label, time }: SunriseAndSunsetProps) => {
   return (

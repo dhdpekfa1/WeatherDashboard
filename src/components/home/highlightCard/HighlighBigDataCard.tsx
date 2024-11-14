@@ -1,12 +1,5 @@
 import { Card, CardHeader, CardDescription, CardContent } from "@/components";
-import { ReactNode } from "react";
-
-interface HighlighBigDataCardProps {
-  labelKo: string;
-  labelEn: string;
-  imgUrl?: string;
-  children: ReactNode;
-}
+import { HighlighBigDataCardProps } from "@/types/home";
 
 const HighlighBigDataCard = ({
   labelKo,
