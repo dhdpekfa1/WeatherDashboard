@@ -76,7 +76,6 @@ const HighlightCard = ({ currentData, tideData }: HighlightCardProps) => {
           >
             <div className="w-full flex items-center justify-between">
               <div className="w-fit flex gap-4 items-center ml-4">
-                {/* <div className="w-fit grid grid-cols-4 gap-3"> */}
                 {tideTimesWithUnits.map((tide, index) => (
                   <div className="flex flex-col items-center" key={index}>
                     <p className="text-sm text-muted-foreground">
