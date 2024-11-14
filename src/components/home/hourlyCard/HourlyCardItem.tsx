@@ -1,10 +1,12 @@
 import { Card } from "@/components";
 import { HourlyCardItemProps } from "@/types/home";
+import { useFormattedTime } from "@/hooks/useFormattedTime";
 
 const HourlyCardItem = ({ data }: HourlyCardItemProps) => {
+  const rotmatTime = useFormattedTime(data.time);
   return (
     <Card className="w-24 min-w-24 h-fit flex flex-col items-center py-[6px] gap-1 bg-neutral-50">
-      <span className="text-sm">1시</span>
+      <span className="text-sm">{rotmatTime}</span>
       <img
         src={`src/assets/icons/${data.condition.code}${
           data.condition.icon.includes("day") ? "d" : "n"
