@@ -40,7 +40,7 @@ export interface ForecastTideDay {
     uv: number;
     tides: [
       {
-        tide: Tide[];
+        tides: { tide: Tide[] }[];
       }
     ];
   };
