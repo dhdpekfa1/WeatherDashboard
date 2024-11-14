@@ -1,8 +1,11 @@
 import useKakaoLoader from "@/hooks/useKakaoLoader";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { Card } from "@/components";
+import { useState } from "react";
 
 const KakaoMapCard = () => {
+  const [cityName, setCityName] = useState("seoul");
+
   useKakaoLoader();
 
   const positions = [
@@ -69,6 +72,9 @@ const KakaoMapCard = () => {
               },
             }}
             title={position.cityName}
+            clickable={true}
+            onClick={(marker) => console.log(marker.getTitle())}
+            // onClick={(marker) => setCityName(marker.getTitle())}
           />
         ))}
       </Map>
