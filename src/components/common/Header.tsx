@@ -7,7 +7,7 @@ const Header = () => {
         {/* logo */}
         <div className="h-full flex items-center justify-center gap-2">
           <img src="src/assets/icons/logo.svg" alt="logo" className="h-10" />
-          <h3 className="roboto-bold scroll-m-20 text-2xl font-semibold tracking-tight">
+          <h3 className="roboto-bold scroll-m-20 text-2xl font-semibold tracking-tight text-white">
             Weather.io
           </h3>
         </div>
