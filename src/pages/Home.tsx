@@ -60,7 +60,7 @@ const Home = () => {
   const [weatherData, setWeatherData] = useState(defaultWeatherData);
 
   useEffect(() => {
-    getWeatherData("jeju");
+    getWeatherData("seoul");
   }, []);
 
   const getWeatherData = async (local: string) => {
@@ -74,7 +74,6 @@ const Home = () => {
       if (res.status === 200) {
         setWeatherData(res.data);
       }
-      console.log(weatherData);
     } catch (err) {
       console.error(err);
     }
