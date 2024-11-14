@@ -60,7 +60,7 @@ const DaysCard = () => {
   ];
 
   return (
-    <Card className="w-1/4">
+    <Card className="w-1/4 h-full">
       <CardHeader>
         <CardTitle className="text-xl">7 Days</CardTitle>
         <CardDescription>이번 주 날씨를 조회하고 있습니다.</CardDescription>
