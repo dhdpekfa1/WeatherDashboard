@@ -42,3 +42,15 @@ export interface SunriseAndSunsetProps {
   label: string;
   time: string;
 }
+
+export interface DaysCardProps {
+  data: WeatherInfo[];
+}
+
+export interface WeatherInfo {
+  maxTemp: number;
+  minTemp: number;
+  date: string;
+  iconCode: string;
+  isDay: boolean;
+}

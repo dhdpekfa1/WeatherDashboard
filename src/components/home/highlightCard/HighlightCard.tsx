@@ -79,7 +79,7 @@ const HighlightCard = ({ currentData, tideData }: HighlightCardProps) => {
                 {tideTimesWithUnits.map((tide, index) => (
                   <div className="flex flex-col items-center" key={index}>
                     <p className="text-sm text-muted-foreground">
-                      {index + 1}회 - {tide.type === "HIGH" ? "만조" : "간조"}
+                      {index + 1}회-{tide.type === "HIGH" ? "만조" : "간조"}
                     </p>
                     <p className="roboto-medium scroll-m-20 text-lg font-semibold tracking-tight">
                       {tide.displayTime}

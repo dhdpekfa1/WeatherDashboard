@@ -9,7 +9,7 @@ import {
   HighlightCard,
   DaysCard,
 } from "@/components";
-import { ForecastTideDay, Weather } from "@/types/data";
+import { ForecastTideDay, Weather, ForecastDay } from "@/types/data";
 
 const defaultWeatherData: Weather = {
   current: {
@@ -102,10 +102,12 @@ const defaultTideData: ForecastTideDay = {
 const Home = () => {
   const [weatherData, setWeatherData] = useState<Weather>(defaultWeatherData);
   const [tideData, setTideData] = useState<ForecastTideDay>(defaultTideData);
+  const [oneWeekData, setOneWeekData] = useState([]);
 
   useEffect(() => {
     getWeatherData("seoul");
     getTideData("seoul");
+    getWeekWeatherData("seoul");
   }, []);
 
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
@@ -139,6 +141,31 @@ const Home = () => {
     }
   };
 
+  const getWeekWeatherData = async (cityName: string) => {
+    try {
+      const res = await axios.get(
+        `${BASE_URL}/forecast.json?q=${cityName}&days=7&key=${API_KEY}`
+      );
+
+      if (res.status === 200 && res.data) {
+        const newData = res.data.forecast.forecastday.map(
+          (item: ForecastDay) => {
+            return {
+              maxTemp: Math.round(item.day.maxtemp_c),
+              minTemp: Math.round(item.day.mintemp_c),
+              date: item.date_epoch,
+              iconCode: item.day.condition.code,
+              isDay: item.day.condition.icon.includes("day"),
+            };
+          }
+        );
+        setOneWeekData(newData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="page">
       <div className="page__container">
@@ -153,7 +180,7 @@ const Home = () => {
           {/* 하단 2개 위젯 3:1 */}
           <div className="w-full flex items-center gap-6">
             <HighlightCard currentData={weatherData} tideData={tideData} />
-            <DaysCard />
+            <DaysCard data={oneWeekData} />
           </div>
         </div>
       </div>
