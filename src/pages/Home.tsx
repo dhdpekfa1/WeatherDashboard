@@ -87,7 +87,7 @@ const Home = () => {
           {/* 상단 3개 위젯 1:2:1 */}
           <div className="w-full flex items-center gap-6">
             <TodayCard data={weatherData} />
-            <HourlyCard />
+            <HourlyCard data={weatherData.forecast.forecastday[0]} />
             <KakaoMapCard />
           </div>
           {/* 하단 2개 위젯 3:1 */}

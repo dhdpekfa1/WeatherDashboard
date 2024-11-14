@@ -6,8 +6,10 @@ import {
   CardContent,
   HourlyCardItem,
 } from "@/components";
+import { HourlyData } from "@/types/data";
+import { HourlyCardProps } from "@/types/home";
 
-const HourlyCard = () => {
+const HourlyCard = ({ data }: HourlyCardProps) => {
   return (
     <Card className="flex-1 max-w-[calc(50%-48px)] h-full">
       <CardHeader>
@@ -17,13 +19,13 @@ const HourlyCard = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="w-full flex items-center gap-4 overflow-x-scroll">
-        {/* TODO: CardItem 시간대 별 map() */}
-        <HourlyCardItem time="오후 1시" temperature={12} />
-        <HourlyCardItem time="오후 2시" temperature={13} />
-        <HourlyCardItem time="오후 3시" temperature={13} />
-        <HourlyCardItem time="오후 4시" temperature={13} />
-        <HourlyCardItem time="오후 5시" temperature={10} />
-        <HourlyCardItem time="오후 6시" temperature={9} />
+        {data && data.hour ? (
+          data.hour.map((hourData: HourlyData) => (
+            <HourlyCardItem data={hourData} key={hourData.time} />
+          ))
+        ) : (
+          <span>데이터를 불러오는 중...</span>
+        )}
       </CardContent>
     </Card>
   );

@@ -1,18 +1,20 @@
 import { Card } from "@/components";
-import { HourlyCardItemProp } from "@/types/home";
+import { HourlyCardItemProps } from "@/types/home";
 
-const HourlyCardItem = ({ time, temperature }: HourlyCardItemProp) => {
+const HourlyCardItem = ({ data }: HourlyCardItemProps) => {
   return (
     <Card className="w-24 min-w-24 h-fit flex flex-col items-center py-[6px] gap-1 bg-neutral-50">
-      <span className="text-sm">{time}</span>
+      <span className="text-sm">1시</span>
       <img
-        src="src/assets/icons/1030n.svg"
+        src={`src/assets/icons/${data.condition.code}${
+          data.condition.icon.includes("day") ? "d" : "n"
+        }.svg`}
         alt="weather-icon"
         className="w-14 h-14"
       />
       <div className="w-full flex items-start justify-center">
         <span className="roboto-medium scroll-m-20 text-xl font-medium tracking-tighter">
-          {temperature}
+          {data.temp_c}
         </span>
         <span className="text=[13px] ml-[1px] me-[1px] font-medium">
           &#8451;
