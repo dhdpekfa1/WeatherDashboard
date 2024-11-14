@@ -23,64 +23,62 @@ const Home = () => {
   const [oneWeekData, setOneWeekData] = useState([]);
 
   useEffect(() => {
-    getWeatherData("seoul");
-    getTideData("seoul");
-    getWeekWeatherData("seoul");
+    fetchData("weather", "seoul");
+    fetchData("tide", "seoul");
+    fetchData("weekWeather", "seoul");
   }, []);
 
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
   const BASE_URL = " http://api.weatherapi.com/v1";
 
-  const getWeatherData = async (cityName: string) => {
+  const fetchData = async (
+    type: "weather" | "tide" | "weekWeather",
+    cityName: string
+  ) => {
     try {
-      const res = await axios.get(
-        `${BASE_URL}/.forecast.json?q=${cityName}&days=7&key=${API_KEY}`
-      );
-      if (res.status === 200) {
-        setWeatherData(res.data);
+      let endpoint = "";
+      // type에 따라 endpoint 설정
+      switch (type) {
+        case "weather":
+          endpoint = `/forecast.json?q=${cityName}&days=7&key=${API_KEY}`;
+          break;
+        case "tide":
+          endpoint = `/marine.json?q=${cityName}&days=1&key=${API_KEY}`;
+          break;
+        case "weekWeather":
+          endpoint = `/forecast.json?q=${cityName}&days=7&key=${API_KEY}`;
+          break;
+        default:
+          throw new Error("Invalid type specified");
       }
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
-  const getTideData = async (cityName: string) => {
-    try {
-      const res = await axios.get(
-        `${BASE_URL}/marine.json?q=${cityName}&days=1&key=${API_KEY}`
-      );
-      console.log(res);
-
+      const res = await axios.get(`${BASE_URL}${endpoint}`);
       if (res.status === 200 && res.data) {
-        setTideData(res.data.forecast.forecastday[0]);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getWeekWeatherData = async (cityName: string) => {
-    try {
-      const res = await axios.get(
-        `${BASE_URL}/forecast.json?q=${cityName}&days=7&key=${API_KEY}`
-      );
-
-      if (res.status === 200 && res.data) {
-        const newData = res.data.forecast.forecastday.map(
-          (item: ForecastDay) => {
-            return {
-              maxTemp: Math.round(item.day.maxtemp_c),
-              minTemp: Math.round(item.day.mintemp_c),
-              date: item.date_epoch,
-              iconCode: item.day.condition.code,
-              isDay: item.day.condition.icon.includes("day"),
-            };
+        // type에 따라 상태 업데이트 처리
+        switch (type) {
+          case "weather":
+            setWeatherData(res.data);
+            break;
+          case "tide":
+            setTideData(res.data.forecast.forecastday[0]);
+            break;
+          case "weekWeather": {
+            const newData = res.data.forecast.forecastday.map(
+              (item: ForecastDay) => ({
+                maxTemp: Math.round(item.day.maxtemp_c),
+                minTemp: Math.round(item.day.mintemp_c),
+                date: item.date_epoch,
+                iconCode: item.day.condition.code,
+                isDay: item.day.condition.icon.includes("day"),
+              })
+            );
+            setOneWeekData(newData);
+            break;
           }
-        );
-        setOneWeekData(newData);
+        }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
