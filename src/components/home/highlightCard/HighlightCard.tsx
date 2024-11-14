@@ -8,8 +8,10 @@ import {
   HighlightSmallDataCard,
   HighlighBigDataCard,
 } from "@/components";
+import { Tide } from "@/types/data";
+import { HighlightCardProps } from "@/types/home";
 
-const HighlightCard = () => {
+const HighlightCard = ({ currentData, tideData }: HighlightCardProps) => {
   const cardData = [
     {
       labelKo: "습도",
@@ -41,6 +43,22 @@ const HighlightCard = () => {
     },
   ];
 
+  if (!currentData || !tideData) {
+    return <div>데이터를 블러오는 중입니다...</div>;
+  }
+
+  const tideTimesWithUnits = tideData.day.tides[0].tide.map((item: Tide) => {
+    const [, hourString] = item.tide_time.split(" ");
+    const [hour] = hourString.split(":").map(Number);
+    const formattedUnit = hour < 12 ? "am" : "pm";
+
+    return {
+      displayTime: item.tide_time.split(" ")[1],
+      unit: formattedUnit,
+      type: item.tide_type,
+    };
+  });
+
   return (
     <Card className="flex-1">
       <CardHeader>
@@ -56,37 +74,21 @@ const HighlightCard = () => {
             labelEn={"Marine and Sailing"}
             imgUrl={"src/assets/icons/Waves.png"}
           >
-            {/* TODO: Tides 컴포넌트 분리 가능 */}
-            <div className="w-fit grid grid-cols-4 gap-3">
-              <div className="flex flex-col items-center">
-                <p className="text-sm text-muted-foreground">1회 - 만조</p>
-                <p className="roboto-medium scroll-m-20 text-lg font-semibold tracking-tighter">
-                  05:48
-                  <span className="ml-[1px]">am</span>
-                </p>
+            <CardContent className="w-full flex items-center justify-between">
+              <div className="w-fit grid grid-cols-4 gap-3">
+                {tideTimesWithUnits.map((tide, index) => (
+                  <div className="flex flex-col items-center" key={index}>
+                    <p className="text-sm text-muted-foreground">
+                      {index + 1}회 - {tide.type === "HIGH" ? "만조" : "간조"}
+                    </p>
+                    <p className="roboto-medium scroll-m-20 text-lg font-semibold tracking-tight">
+                      {tide.displayTime}
+                      <span className="ml-[1px]">{tide.unit}</span>
+                    </p>
+                  </div>
+                ))}
               </div>
-              <div className="flex flex-col items-center">
-                <p className="text-sm text-muted-foreground">2회 - 간조</p>
-                <p className="roboto-medium scroll-m-20 text-lg font-semibold tracking-tighter">
-                  11:56
-                  <span className="ml-[1px]">am</span>
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <p className="text-sm text-muted-foreground">3회 - 만조</p>
-                <p className="roboto-medium scroll-m-20 text-lg font-semibold tracking-tighter">
-                  18:14
-                  <span className="ml-[1px]">pm</span>
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <p className="text-sm text-muted-foreground">4회 - 간조</p>
-                <p className="roboto-medium scroll-m-20 text-lg font-semibold tracking-tighter">
-                  18:14
-                  <span className="ml-[1px]">pm</span>
-                </p>
-              </div>
-            </div>
+            </CardContent>
           </HighlighBigDataCard>
 
           <HighlighBigDataCard

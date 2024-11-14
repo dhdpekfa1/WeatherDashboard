@@ -1,10 +1,10 @@
+// import { useState } from "react";
 import useKakaoLoader from "@/hooks/useKakaoLoader";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { Card } from "@/components";
-import { useState } from "react";
 
 const KakaoMapCard = () => {
-  const [cityName, setCityName] = useState("seoul");
+  // const [cityName, setCityName] = useState("seoul");
 
   useKakaoLoader();
 

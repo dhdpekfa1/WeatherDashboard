@@ -1,5 +1,10 @@
 import { ReactNode } from "react";
-import { ForecastDay, HourlyData, Weather } from "@/types/data";
+import {
+  ForecastDay,
+  ForecastTideDay,
+  HourlyData,
+  Weather,
+} from "@/types/data";
 
 export interface TodayCardProps {
   data: Weather;
@@ -10,6 +15,11 @@ export interface HourlyCardProps {
 }
 export interface HourlyCardItemProps {
   data: HourlyData;
+}
+
+export interface HighlightCardProps {
+  currentData: Weather;
+  tideData: ForecastTideDay;
 }
 
 export interface HighlighBigDataCardProps {

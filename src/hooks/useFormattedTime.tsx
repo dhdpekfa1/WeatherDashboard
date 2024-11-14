@@ -2,8 +2,8 @@ import { useMemo } from "react";
 
 export const useFormattedTime = (time: string) => {
   return useMemo(() => {
-    const [data, hourString] = time.split(" ");
-    const [hour, minute] = hourString.split(":").map(Number);
+    const [, hourString] = time.split(" ");
+    const [hour] = hourString.split(":").map(Number);
 
     let formattedTime;
 

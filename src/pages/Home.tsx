@@ -9,7 +9,7 @@ import {
   HighlightCard,
   DaysCard,
 } from "@/components";
-import { Weather } from "@/types/data";
+import { ForecastTideDay, Weather } from "@/types/data";
 
 const defaultWeatherData: Weather = {
   current: {
@@ -56,26 +56,86 @@ const defaultWeatherData: Weather = {
   forecast: { forecastday: [] },
 };
 
+const defaultTideData: ForecastTideDay = {
+  astro: {
+    is_moon_up: 0,
+    is_sun_up: 0,
+    moon_illumination: 0,
+    moon_phase: "",
+    moonrise: "",
+    moonset: "",
+    sunrise: "",
+    sunset: "",
+  },
+  date: "",
+  date_epoch: 0,
+  day: {
+    avghumidity: 0,
+    avgtemp_c: 0,
+    avgtemp_f: 0,
+    avgvis_km: 0,
+    avgvis_miles: 0,
+    condition: { text: "", icon: "", code: 0 },
+    daily_chance_of_rain: 0,
+    daily_chance_of_snow: 0,
+    daily_will_it_rain: 0,
+    daily_will_it_snow: 0,
+    maxtemp_c: 0,
+    maxtemp_f: 0,
+    maxwind_kph: 0,
+    maxwind_mph: 0,
+    mintemp_c: 0,
+    mintemp_f: 0,
+    totalprecip_in: 0,
+    totalprecip_mm: 0,
+    totalsnow_cm: 0,
+    uv: 0,
+    tides: [
+      {
+        tide: [],
+      },
+    ],
+  },
+  hour: [],
+};
+
 const Home = () => {
-  const [weatherData, setWeatherData] = useState(defaultWeatherData);
+  const [weatherData, setWeatherData] = useState<Weather>(defaultWeatherData);
+  const [tideData, setTideData] = useState<ForecastTideDay>(defaultTideData);
 
   useEffect(() => {
     getWeatherData("seoul");
+    getTideData("seoul");
   }, []);
 
-  const getWeatherData = async (local: string) => {
-    const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-    const BASE_URL = " http://api.weatherapi.com/v1";
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+  const BASE_URL = " http://api.weatherapi.com/v1";
 
+  const getWeatherData = async (cityName: string) => {
     try {
       const res = await axios.get(
-        `${BASE_URL}/.forecast.json?q=${local}&days=7&key=${API_KEY}`
+        `${BASE_URL}/.forecast.json?q=${cityName}&days=7&key=${API_KEY}`
       );
       if (res.status === 200) {
         setWeatherData(res.data);
       }
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const getTideData = async (cityName: string) => {
+    try {
+      const res = await axios.get(
+        `${BASE_URL}/marine.json?q=${cityName}&days=1&key=${API_KEY}`
+      );
+      console.log(res);
+
+      if (res.status === 200 && res.data) {
+        setTideData(res.data.forecast.forecastday[0]);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -92,7 +152,7 @@ const Home = () => {
           </div>
           {/* 하단 2개 위젯 3:1 */}
           <div className="w-full flex items-center gap-6">
-            <HighlightCard />
+            <HighlightCard currentData={weatherData} tideData={tideData} />
             <DaysCard />
           </div>
         </div>
