@@ -1,14 +1,14 @@
 export const formatDate = (epoch: number) => {
-  const date = new Date(epoch * 1000); // Convert seconds to milliseconds
-  const day = date.toLocaleString("en-EN", { day: "2-digit" }); // Get the day
-  const month = date.toLocaleString("en-EN", { month: "short" }); // Get the month (abbreviated)
+  const date = new Date(epoch * 1000);
+  const day = date.toLocaleString("en-EN", { day: "2-digit" });
+  const month = date.toLocaleString("en-EN", { month: "short" });
 
-  return `${day} ${month}`; // Return formatted string
+  return `${day} ${month}`;
 };
 
 export const formatDay = (epoch: number) => {
-  const date = new Date(epoch * 1000); // Convert seconds to milliseconds
-  const weekday = date.toLocaleString("ko-KR", { weekday: "long" }); // Get the day of the week
+  const date = new Date(epoch * 1000);
+  const weekday = date.toLocaleString("ko-KR", { weekday: "long" });
 
   return weekday;
 };
