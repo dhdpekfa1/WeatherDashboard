@@ -17,28 +17,28 @@ const HighlightCard = ({ currentData, tideData }: HighlightCardProps) => {
       labelKo: "습도",
       labelEn: "Humidity",
       imgUrl: "src/assets/icons/Humidity.svg",
-      value: 80,
+      value: currentData.current.humidity,
       unit: "%",
     },
     {
       labelKo: "기압",
       labelEn: "Pressure",
       imgUrl: "src/assets/icons/Wind.svg",
-      value: 1024,
+      value: currentData.current.pressure_mb,
       unit: "hPa",
     },
     {
       labelKo: "가시거리",
       labelEn: "Visibility",
       imgUrl: "src/assets/icons/Fog.svg",
-      value: 10,
+      value: currentData.current.vis_km,
       unit: "km",
     },
     {
       labelKo: "체감온도",
       labelEn: "Fells Lick",
       imgUrl: "src/assets/icons/Hot.svg",
-      value: 80,
+      value: currentData.current.feelslike_c,
       unit: "&#8451;",
     },
   ];
@@ -98,12 +98,12 @@ const HighlightCard = ({ currentData, tideData }: HighlightCardProps) => {
             <SunriseAndSunset
               imgUrl={"src/assets/icons/1000d.svg"}
               label={"Sunrise"}
-              time={"07:00 AM"}
+              time={tideData.astro.sunrise}
             />
             <SunriseAndSunset
               imgUrl={"src/assets/icons/1000n.svg"}
               label={"Sunset"}
-              time={" 05:34 PM"}
+              time={tideData.astro.sunset}
             />
           </HighlighBigDataCard>
         </div>
