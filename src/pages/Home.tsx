@@ -15,7 +15,7 @@ import {
 import { ForecastTideDay, Weather, ForecastDay } from "@/types/data";
 
 const Home = () => {
-  const [cityName, setCityName] = useAtom(cityNameAtom);
+  const [cityName] = useAtom(cityNameAtom);
   const [weatherData, setWeatherData] = useState<Weather>(
     defaultWeatherData as Weather
   );
