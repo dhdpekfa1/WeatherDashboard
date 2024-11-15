@@ -6,6 +6,10 @@ import {
   Weather,
 } from "@/types/data";
 
+export interface HeaderProps {
+  setCityName: React.Dispatch<React.SetStateAction<string>>;
+}
+
 export interface TodayCardProps {
   data: Weather;
 }

@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { useAtom } from "jotai";
-import { cityNameAtom } from "@/store";
 import { SearchBar } from "@/components";
+import { HeaderProps } from "@/types/home";
 
-const Header = () => {
-  const [, setCityName] = useAtom(cityNameAtom);
+const Header: React.FC<HeaderProps> = ({ setCityName }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

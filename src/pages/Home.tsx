@@ -15,7 +15,7 @@ import {
 import { ForecastTideDay, Weather, ForecastDay } from "@/types/data";
 
 const Home = () => {
-  const [cityName] = useAtom(cityNameAtom);
+  const [cityName, setCityName] = useAtom(cityNameAtom);
   const [weatherData, setWeatherData] = useState<Weather>(
     defaultWeatherData as Weather
   );
@@ -86,7 +86,7 @@ const Home = () => {
   return (
     <div className="page">
       <div className="page__container">
-        <Header />
+        <Header setCityName={setCityName} />
         <div className="w-full h-full flex flex-col items-flex justify-start gap-6 py-6 px-6">
           {/* 상단 3개 위젯 1:2:1 */}
           <div className="w-full flex items-center gap-6">
