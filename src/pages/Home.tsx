@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { cityNameAtom } from "@/store";
 import axios from "axios";
 import defaultWeatherData from "@/data/defaultWeatherData.json";
 import defaultTideData from "@/data/defaultTideData.json";
-
 import {
   Header,
   TodayCard,
@@ -14,6 +15,7 @@ import {
 import { ForecastTideDay, Weather, ForecastDay } from "@/types/data";
 
 const Home = () => {
+  const [cityName, setCityName] = useAtom(cityNameAtom);
   const [weatherData, setWeatherData] = useState<Weather>(
     defaultWeatherData as Weather
   );
@@ -23,18 +25,17 @@ const Home = () => {
   const [oneWeekData, setOneWeekData] = useState([]);
 
   useEffect(() => {
-    fetchData("weather", "seoul");
-    fetchData("tide", "seoul");
-    fetchData("weekWeather", "seoul");
+    fetchData("weather", cityName);
+    fetchData("tide", cityName);
+    fetchData("weekWeather", cityName);
   }, []);
-
-  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-  const BASE_URL = " http://api.weatherapi.com/v1";
 
   const fetchData = async (
     type: "weather" | "tide" | "weekWeather",
     cityName: string
   ) => {
+    const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+    const BASE_URL = " http://api.weatherapi.com/v1";
     try {
       let endpoint = "";
       // type에 따라 endpoint 설정

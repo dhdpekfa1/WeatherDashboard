@@ -15,3 +15,4 @@
 - `component/index.ts` file 생성 후 ui의 `export` 부분 전체 경로 설정 -> 이후 컴포넌트를 하나의 경로(`@/component`)에서 import
 
 5. HTTP 통신을 위한 라이브러리(axios) 설치: `npm install axios`
+6. 상태 관리 라이브러리(Jotai) 설치: `npm install jotai`
